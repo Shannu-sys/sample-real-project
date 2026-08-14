@@ -1,9 +1,19 @@
 pipeline {
-    agent any 
+    agent any
     stages {
-        stage ('Checkout') {
+        stage ('checkout') {
+            echo "checking the source code"
+        }
+
+        stage ('Build') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Shannu-sys/sample-real-project.git']])
+                echo "building..."
+            }
+        }
+
+        stage('test') {
+            steps {
+                echo 'testing...'
             }
         }
     }
